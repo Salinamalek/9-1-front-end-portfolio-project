@@ -14,3 +14,4 @@
 *As a user, if I try to submit with no entry in the input box, I see a message on the screen notifying me to enter a value to search (I cannot submit without entering a value).
 
 *As a user, I can click on a photo (sprite) so that I can view information about that photo (sprite).
+
