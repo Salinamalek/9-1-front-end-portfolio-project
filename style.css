@@ -1,0 +1,23 @@
+body {
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.all {
+/* display: grid;
+grid-template-columns: 3fr 1fr;
+grid-gap: 10px 20px;
+grid-template-areas: 
+    "header header header"; */
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+margin-left: auto;
+margin-right: auto;
+max-width: 87rem;
+padding: 1em;
+height: 100vh;
+width: 100vw;
+/* border: 1px solid white; */
+/* border-radius: 10px; */
+background-image: linear-gradient(red, rgb(75, 70, 70), white);
+}
