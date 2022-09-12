@@ -7,6 +7,10 @@
 	<title>Frontend Portfolio Project</title>
 	<link href="./style.css" rel="stylesheet" type="text/css" />
 	<script defer src="./main.js"></script>
+    <link href="http://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+    <style>
+    @import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+    </style>
     <!-- <a href="./about.html">About Me</a> -->
 </head>
 
@@ -14,7 +18,7 @@
     <div class="all">
         <header>
             <h1>
-                Pokemon Project using the Poke API
+                Pokémon Project using the Poke API
             </h1>
             <h2>
                 Salina Malek
@@ -25,13 +29,14 @@
         <p class="error message hidden"></p>
         <form>
           <label>
-            Enter a Pokemon's Dex Entry:
-            <input id="pokemon-id" type="number" name="id" min="1" max"800" placeholder="Enter Pokedex #"/>
+            Enter a Pokémon's Dex Entry:
+            <input id="pokemon-id" type="number" name="id" min="1" max"800" placeholder="Enter Pokédex #"/>
           </label>
-          <button type="submit">Get Pokemon</button>
+          <button type="submit">Get Pokémon</button>
         </form>
         <section class="pokemon"></section>
         <aside class="pokeInfo">
+            <article id="name"></article>
             <article id="dexNum"></article>
         </aside>
       </main>

@@ -1,7 +1,9 @@
 body {
     margin: auto;
     text-align: center;
-    color: white;
+    font-family: 'Pokemon Solid', sans-serif; color:rgb(255, 255, 0);
+    font-weight: bolder;
+    -webkit-text-stroke: 1px rgb(0, 0, 255);
 }
 
 .all {
@@ -10,7 +12,7 @@ grid-template-columns: 3fr 1fr;
 grid-gap: 10px 20px;
 grid-template-areas: 
     "header header header"; */
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+/* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
 margin-left: auto;
 margin-right: auto;
 max-width: 87rem;

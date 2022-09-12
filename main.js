@@ -15,7 +15,7 @@ form.addEventListener("submit", (event) => {
 
     if(id.value === ""){
 
-        error.innerText = "Must input a correct Pokedex number"
+        error.innerText = "Must input a correct Pokédex number"
     } else {
         error.classList.add('hidden')
         
@@ -24,7 +24,8 @@ form.addEventListener("submit", (event) => {
             .then((res) => {
                 console.log(res)
 
-                const article = document.createElement('article')
+                const article = document.querySelector('#name')
+                article.innerHTML = ""
                 const h2 = document.createElement('h2')
                 const image = document.createElement('img')
                 const image2 = document.createElement('img')
@@ -63,9 +64,10 @@ form.addEventListener("submit", (event) => {
                 })
 
                 const article2 = document.querySelector('#dexNum')
+                article2.innerHTML = ""
                 const dex = res.id
                 const dexNum = document.createElement('p')
-                dexNum.innerHTML = `<strong>Pokedex #: </strong>${dex}`;
+                dexNum.innerHTML = `<strong>Pokédex #: </strong>${dex}`;
                 article2.append(dexNum);
             })
             .catch((err) => console.log(err))
