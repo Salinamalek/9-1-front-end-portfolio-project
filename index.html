@@ -25,14 +25,18 @@
             </h2>
         </header>
     
-      <main>
+      <main id="main">
         <p class="error message hidden"></p>
         <form>
           <label>
             Enter a Pokémon's Dex Entry:
-            <input id="pokemon-id" type="number" name="id" min="1" max"800" placeholder="Enter Pokédex #"/>
+            <p>
+              <input id="pokemon-id" type="number" name="id" min="1" max"800" placeholder="Enter Pokédex #"/>
+            </p>
           </label>
-          <button type="submit">Get Pokémon</button>
+          <p>
+            <button type="submit">Get Pokémon</button>
+          </p>
         </form>
         <section class="pokemon"></section>
         <aside class="pokeInfo">

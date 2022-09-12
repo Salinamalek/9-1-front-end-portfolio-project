@@ -73,27 +73,35 @@ form.addEventListener("submit", (event) => {
                 const article3 = document.querySelector('#type')
                 article3.innerHTML = ""
                 const type = res.types[0].type.name
-                const type2 = res.types[1].type.name
+                const type2 = res.types[1].type.name //error
 
+                const types = document.createElement('p');
+                types.innerHTML = `<strong>Type(s): </strong>${type}, ${type2}`;    
 
-                const types = document.createElement('p')
-                types.innerHTML = `<strong>Type(s): </strong>${type}, ${type2}`;
-                
-                article3.append(types);
-                
-                // if(res.types.length === 1){
-                //     return `${type}`
-                // } else {
-                //     return `${type}, ${type2}`
+                // const types1 = document.createElement('p')
+                // types1.innerHTML = `<strong>Type(s): </strong>${type}`;  
+               
+            //    const types2 = document.createElement('p')
+            //    types2.innerHTML = `<strong>Type(s): </strong>${type2}`;
+               
+                // let arr = [];
+
+                // for (let i = 0; i < res.types.length; i++) {
+                //     arr.push(res.types[i].type.name)
                 // };
+                // console.log(arr)
+
+                article3.append(types)
+                // article3.append(types1,types2);
+                
 
 
-                // const article3 = document.querySelector('#exp')
-                // article3.innerHTML = ""
+                // const article4 = document.querySelector('#exp')
+                // article4.innerHTML = ""
                 // const exp = res.abilities.base_experience[0]
                 // const exps = document.createElement('p')
                 // exps.innerHTML = `<strong>Base Experience: </strong>${exp}`
-                // article3.append(exps)
+                // article4.append(exps)
 
             })
             .catch((err) => console.log(err))

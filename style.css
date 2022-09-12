@@ -24,6 +24,12 @@ width: 100vw;
 background-image: linear-gradient(rgb(255, 0, 0), rgb(75, 70, 70), rgb(255, 255, 255));
 }
 
+/* #main {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ border-color: aqua;
+} */
+
 /* img {
    height: 100px; 
    width: 100px;
