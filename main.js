@@ -13,11 +13,11 @@ form.reset();
 form.addEventListener("submit", (event) => {
     event.preventDefault()
 
-    if(id.value === ""){
+    // if(id.value === ""){
 
-        error.innerText = "Must input a correct Pokédex number"
-    } else {
-        error.classList.add('hidden')
+    //     error.innerText = "Must input a correct Pokédex number"
+    // } else {
+    //     error.classList.add('hidden')
         
         fetch(`${url}/${id.value}`)
             .then((res) => res.json())
@@ -26,17 +26,24 @@ form.addEventListener("submit", (event) => {
 
                 const article = document.querySelector('#name')
                 article.innerHTML = ""
-                const h2 = document.createElement('h2')
-                const image = document.createElement('img')
-                const image2 = document.createElement('img')
-               
-                article.append(h2, image, image2)
-               
+                // const h2 = document.createElement('h2')
+
+                // article.append(h2)
                 pokemon.append(article)
 
+
+                const pokeDex = `Pokedex Entry #: ` + res.id
+                const h2 = document.createElement('h2')
+                h2.innerText = pokeDex
+                const image = document.createElement('img')
+                const image2 = document.createElement('img')
+
+                const article2 = document.querySelector('#name')
+                article2.innerHTML = ""
                 const name = res.name.charAt(0).toUpperCase() + res.name.slice(1)
-                h2.innerText = name
-                
+                const pokeName = document.createElement('p')
+                dexNum.innerHTML = `<strong>Pokémon Name: </strong>${name}`;
+                article2.append(h2, image, image2, pokeName);
 
                 image.src = res.sprites.front_default
                 image2.src = res.sprites.front_shiny
@@ -63,13 +70,6 @@ form.addEventListener("submit", (event) => {
                     }
                 })
 
-                const article2 = document.querySelector('#dexNum')
-                article2.innerHTML = ""
-                const dex = res.id
-                const dexNum = document.createElement('p')
-                dexNum.innerHTML = `<strong>Pokédex #: </strong>${dex}`;
-                article2.append(dexNum);
-
                 const article3 = document.querySelector('#type')
                 article3.innerHTML = ""
                 const type = res.types[0].type.name
@@ -95,16 +95,18 @@ form.addEventListener("submit", (event) => {
                 // article3.append(types1,types2);
                 
 
+                const article4 = document.querySelector('#exp')
+                article4.innerHTML = ""
+                const exp = res.base_experience
+                const exps = document.createElement('p')
+                exps.innerHTML = `<strong>Base Experience: </strong>${exp} XP`
+                article4.append(exps);
 
-                // const article4 = document.querySelector('#exp')
-                // article4.innerHTML = ""
-                // const exp = res.abilities.base_experience[0]
-                // const exps = document.createElement('p')
-                // exps.innerHTML = `<strong>Base Experience: </strong>${exp}`
-                // article4.append(exps)
+
 
             })
             .catch((err) => console.log(err))
     }
-})
+)
+
 
