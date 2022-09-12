@@ -8,12 +8,14 @@ const pokemon = document.querySelector('.pokemon')
 
 const error = document.querySelector('.error')
 
+form.reset();
+
 form.addEventListener("submit", (event) => {
     event.preventDefault()
 
     if(id.value === ""){
 
-        error.innerText = "Must input a correct Pokemon ID"
+        error.innerText = "Must input a correct Pokedex number"
     } else {
         error.classList.add('hidden')
         
@@ -25,16 +27,18 @@ form.addEventListener("submit", (event) => {
                 const article = document.createElement('article')
                 const h2 = document.createElement('h2')
                 const image = document.createElement('img')
+                const image2 = document.createElement('img')
                
-                article.append(h2, image)
+                article.append(h2, image, image2)
                
                 pokemon.append(article)
 
-               
-                h2.innerText = res.name
+                const name = res.name.charAt(0).toUpperCase() + res.name.slice(1)
+                h2.innerText = name
                 
-                image.src = res.sprites.front_default
 
+                image.src = res.sprites.front_default
+                image2.src = res.sprites.front_shiny
 
                 
                 image.addEventListener('click', () => {
@@ -48,9 +52,23 @@ form.addEventListener("submit", (event) => {
                     }
                 })
 
+                image2.addEventListener('click', () => {
+                    image2.classList.toggle('shiny')
+
+                    if(image2.classList.contains('shiny')){
+                        image2.src = res.sprites.front_shiny
+                    } else {
+                        image2.src = res.sprites.back_shiny
+                    }
+                })
+
+                const article2 = document.querySelector('#dexNum')
+                const dex = res.id
+                const dexNum = document.createElement('p')
+                dexNum.innerHTML = `<strong>Pokedex #: </strong>${dex}`;
+                article2.append(dexNum);
             })
             .catch((err) => console.log(err))
-
     }
-
 })
+

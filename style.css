@@ -19,5 +19,5 @@ height: 100vh;
 width: 100vw;
 /* border: 1px solid white; */
 /* border-radius: 10px; */
-background-image: linear-gradient(red, rgb(75, 70, 70), white);
+background-image: linear-gradient(rgb(255, 0, 0), rgb(75, 70, 70), rgb(255, 255, 255));
 }
