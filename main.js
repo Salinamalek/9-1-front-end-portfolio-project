@@ -24,7 +24,7 @@ form.addEventListener("submit", (event) => {
                 pokemon.append(article)
 
 
-                const pokeDex = `Pokedex Entry #: ` + res.id
+                const pokeDex = `Pokédex Entry #: ` + res.id
                 const h2 = document.createElement('h2')
                 h2.innerText = pokeDex
                 const image = document.createElement('img')
