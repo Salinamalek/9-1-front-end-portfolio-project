@@ -12,13 +12,7 @@ form.reset();
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
-
-    // if(id.value === ""){
-
-    //     error.innerText = "Must input a correct Pokédex number"
-    // } else {
-    //     error.classList.add('hidden')
-        
+  
         fetch(`${url}/${id.value}`)
             .then((res) => res.json())
             .then((res) => {
@@ -26,9 +20,7 @@ form.addEventListener("submit", (event) => {
 
                 const article = document.querySelector('#name')
                 article.innerHTML = ""
-                // const h2 = document.createElement('h2')
 
-                // article.append(h2)
                 pokemon.append(article)
 
 
@@ -73,27 +65,15 @@ form.addEventListener("submit", (event) => {
                 const article3 = document.querySelector('#type')
                 article3.innerHTML = ""
                 const type = res.types[0].type.name
-                const type2 = res.types[1].type.name //error
-
-                const types = document.createElement('p');
-                types.innerHTML = `<strong>Type(s): </strong>${type}, ${type2}`;    
-
-                // const types1 = document.createElement('p')
-                // types1.innerHTML = `<strong>Type(s): </strong>${type}`;  
-               
-            //    const types2 = document.createElement('p')
-            //    types2.innerHTML = `<strong>Type(s): </strong>${type2}`;
-               
-                // let arr = [];
-
-                // for (let i = 0; i < res.types.length; i++) {
-                //     arr.push(res.types[i].type.name)
-                // };
-                // console.log(arr)
-
-                article3.append(types)
-                // article3.append(types1,types2);
                 
+                const types = document.createElement('p');
+                    if(res.types.length === 1){
+                        types.innerHTML = `<strong>Type(s): </strong>${type}`;   
+                    } else if(res.types.length === 2) {
+                        const type2 = res.types[1].type.name //error
+                        types.innerHTML = `<strong>Type(s): </strong>${type}, ${type2}`;
+                    }
+                article3.append(types)
 
                 const article4 = document.querySelector('#exp')
                 article4.innerHTML = ""
@@ -102,7 +82,19 @@ form.addEventListener("submit", (event) => {
                 exps.innerHTML = `<strong>Base Experience: </strong>${exp} XP`
                 article4.append(exps);
 
+                const article5 = document.querySelector('#height')
+                article5.innerHTML = ""
+                const height = res.height
+                const heights = document.createElement('p')
+                heights.innerHTML = `<strong>Height: </strong>${height/10} m`
+                article5.append(heights);
 
+                const article6 = document.querySelector('#weight')
+                article6.innerHTML = ""
+                const weight = res.weight
+                const weights = document.createElement('p')
+                weights.innerHTML = `<strong>Weight: </strong>${weight/10} kg`
+                article6.append(weights);
 
             })
             .catch((err) => console.log(err))
