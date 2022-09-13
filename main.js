@@ -64,13 +64,13 @@ form.addEventListener("submit", (event) => {
 
                 const article3 = document.querySelector('#type')
                 article3.innerHTML = ""
-                const type = res.types[0].type.name
+                const type = res.types[0].type.name.charAt(0).toUpperCase() + res.types[0].type.name.slice(1)
                 
                 const types = document.createElement('p');
                     if(res.types.length === 1){
                         types.innerHTML = `<strong>Type(s): </strong>${type}`;   
                     } else if(res.types.length === 2) {
-                        const type2 = res.types[1].type.name //error
+                        const type2 = res.types[1].type.name.charAt(0).toUpperCase() + res.types[1].type.name.slice(1)
                         types.innerHTML = `<strong>Type(s): </strong>${type}, ${type2}`;
                     }
                 article3.append(types)
