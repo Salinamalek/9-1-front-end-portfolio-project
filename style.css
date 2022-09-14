@@ -19,7 +19,6 @@ margin-right: auto;
 padding: 1em;
 height: 100vh;
 width: 100vw;
-/* background-image: linear-gradient(rgb(255, 0, 0), rgb(75, 70, 70), rgb(255, 255, 255)); */
 }
 
 a {
@@ -31,7 +30,7 @@ a {
 a:hover {
     background-color: rgb(255, 255, 0);
     border-radius: 40px;
-    padding: 1px;
+    padding: 5px;
 }
 
 .error {
