@@ -16,7 +16,7 @@ form.addEventListener("submit", (event) => {
 
     if(id.value === ""){
         error.classList.remove('hidden')
-        error.innerText = "Must input a correct Pokédex entry # !!!"
+        error.innerText = "Must input a correct Pokédex entry # !"
     } else {
         error.classList.add('hidden');
         error.innerText = ""
