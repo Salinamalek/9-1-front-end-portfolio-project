@@ -8,7 +8,7 @@ const pokemon = document.querySelector('.pokemon')
 
 const error = document.querySelector('.error')
 
-form.reset();
+
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -19,9 +19,9 @@ form.addEventListener("submit", (event) => {
         error.innerText = "Must input a correct Pokédex entry # !!!"
     } else {
         error.classList.add('hidden');
-        error.innerText = ''
+        error.innerText = ""
      }
-  
+
 
         fetch(`${url}/${id.value}`)
             .then((res) => res.json())
@@ -105,7 +105,8 @@ form.addEventListener("submit", (event) => {
                 const weights = document.createElement('p')
                 weights.innerHTML = `<strong>Weight: </strong>${weight/10} kg`
                 article6.append(weights);
-
+                
+                form.reset();
             })
             .catch((err) => console.log(err))
 });
