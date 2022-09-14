@@ -12,7 +12,17 @@ form.reset();
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
+
+
+    if(id.value === ""){
+        error.classList.remove('hidden')
+        error.innerText = "Must input a correct Pokédex entry # !!!"
+    } else {
+        error.classList.add('hidden');
+        error.innerText = ''
+     }
   
+
         fetch(`${url}/${id.value}`)
             .then((res) => res.json())
             .then((res) => {
@@ -98,7 +108,8 @@ form.addEventListener("submit", (event) => {
 
             })
             .catch((err) => console.log(err))
-    }
-)
+});
+
+
 
 
