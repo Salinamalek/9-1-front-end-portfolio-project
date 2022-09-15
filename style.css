@@ -35,6 +35,10 @@ a:hover {
     -webkit-text-stroke: 1px rgb(255, 0, 0);
 }
 
+#pokemon-id {
+    width: 125px;
+}
+
 @media (max-width: 850px){
     header {
         background-image: linear-gradient(rgb(0, 0, 0), rgb(255, 255, 255), rgb(255, 0, 0), rgb(255, 255, 255), rgb(0, 0, 0));
@@ -42,7 +46,3 @@ a:hover {
     }
 };
 
-#pokemon-id {
-    width: 200px;
-    padding: 12px 20px;
-}
