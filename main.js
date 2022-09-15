@@ -22,7 +22,6 @@ form.addEventListener("submit", (event) => {
         error.innerText = ""
      }
 
-
         fetch(`${url}/${id.value}`)
             .then((res) => res.json())
             .then((res) => {
@@ -32,7 +31,6 @@ form.addEventListener("submit", (event) => {
                 article.innerHTML = ""
 
                 pokemon.append(article)
-
 
                 const pokeDex = `Pokédex Entry #: ` + res.id
                 const h2 = document.createElement('h2')
@@ -49,7 +47,6 @@ form.addEventListener("submit", (event) => {
 
                 image.src = res.sprites.front_default
                 image2.src = res.sprites.front_shiny
-
                 
                 image.addEventListener('click', () => {
 
@@ -96,20 +93,78 @@ form.addEventListener("submit", (event) => {
                 article5.innerHTML = ""
                 const height = res.height
                 const heights = document.createElement('p')
-                heights.innerHTML = `<strong>Height: </strong>${height/10} m`
+                heights.innerHTML = `<strong>Height: </strong>${height/10} meter(s)`
                 article5.append(heights);
 
                 const article6 = document.querySelector('#weight')
                 article6.innerHTML = ""
                 const weight = res.weight
                 const weights = document.createElement('p')
-                weights.innerHTML = `<strong>Weight: </strong>${weight/10} kg`
+                weights.innerHTML = `<strong>Weight: </strong>${weight/10} kilogram(s)`
                 article6.append(weights);
                 
+
+                const article7 = document.querySelector('#numAbilities')
+                article7.innerHTML = ""
+                const abilities = res.abilities.length
+                // console.log(abilities)
+                const ability = document.createElement('p');
+                ability.innerHTML = `<strong>Number of Abilities: </strong>${abilities}`;
+                article7.append(ability);
+
+
+                // const article7 = document.querySelector('#abilities')
+                // article7.innerHTML = ""
+                // const ability = res.abilities[0].ability.name.charAt(0).toUpperCase() + res.abilities[0].ability.name.slice(1);
+                
+
+                // const abilities = document.createElement('p');
+                //     if(res.abilities.ability.length === 1){
+                //         abilities.innerHTML = `<strong>Abilities: </strong>${ability}`;
+                //     } else if(res.abilities.ability.length === 2){
+                //         const ability2 = res.abilities[1].ability.name.charAt(0).toUpperCase() + res.abilities[1].ability.name.slice(1);
+                //         abilities.innerHTML = `<strong>Abilities: </strong>${ability}, ${ability2}`;
+                //     } else if(res.abilities.ability.length === 3){
+                //         const ability2 = res.abilities[1].ability.name.charAt(0).toUpperCase() + res.abilities[1].ability.name.slice(1);
+                //         const ability3 = res.abilities[2].ability.name.charAt(0).toUpperCase() + res.abilities[2].ability.name.slice(1);
+                //         abilities.innerHTML = `<strong>Abilities: </strong>${ability}, ${ability2}, ${ability3}`;
+                //     }
+                // article7.append(abilities)
+
+                const article8 = document.querySelector('#numMoves');
+                article8.innerHTML = "";
+                const moves = res.moves.length;
+                const move = document.createElement('p');
+                move.innerHTML = `<strong>Number of Moves: </strong>${moves}`;
+                article8.append(move);
+
+                const gen = document.querySelector('#gen');
+                gen.innerHTML = "";
+                if(res.id >= 1 && res.id <= 151){
+                    gen.innerHTML = `<strong>Generation: 1</strong>`
+                } else if(res.id >= 152 && res.id <= 251){
+                    gen.innerHTML = `<strong>Generation: 2</strong>`
+                } else if(res.id >= 252 && res.id <= 386){
+                    gen.innerHTML = `<strong>Generation: 3</strong>`
+                } else if(res.id >= 387 && res.id <= 493){
+                    gen.innerHTML = `<strong>Generation: 4</strong>`
+                } else if(res.id >= 494 && res.id <= 649){
+                    gen.innerHTML = `<strong>Generation: 5</strong>`
+                } else if(res.id >= 650 && res.id <= 721){
+                    gen.innerHTML = `<strong>Generation: 6</strong>`
+                } else if(res.id >= 722 && res.id <= 809){
+                    gen.innerHTML = `<strong>Generation: 7</strong>`
+                } else {
+                    gen.innerHTML = `<strong>Generation: 8</strong>`
+                }
+                gen.prepend(article8);
+
+
                 form.reset();
             })
             .catch((err) => console.log(err))
 });
+
 
 
 

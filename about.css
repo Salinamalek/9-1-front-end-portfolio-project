@@ -43,7 +43,7 @@ footer {
     text-decoration-line: none;
 }
 
-@media (max-width: 800px){
+@media (max-width: 1000px){
     h1 {
         background-color: rgb(216, 112, 147);
         color: rgb(255, 255, 255);

@@ -8,15 +8,15 @@ body {
 }
 
 .all {
-display: grid;
-grid-template-columns: 1fr;
-grid-template-rows: 1fr 3fr;
-grid-gap: 10px 20px;
-grid-template-areas: 
-    "header";
-margin-left: auto;
-margin-right: auto;
-padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-gap: 10px 20px;
+    grid-template-areas: 
+        "header";
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
 }
 
 a {
@@ -43,7 +43,7 @@ a:hover {
 
 @media (max-width:800px){
     header {
-        background-color: rgba(124, 124, 124, 0.823);
+        background-color: rgb(124, 124, 124, 0.823);
     }
 }
 
