@@ -45,13 +45,10 @@ form.addEventListener("submit", (event) => {
 
                 const article2 = document.querySelector('#name');
                 article2.innerHTML = "";
-                // console.log(res.name)
-
                 if(!res.name){
-                    throw error
+                    throw "Error: Must input a valid Pokédex entry #!"
                 } else {
-                    const name = res.name.charAt(0).toUpperCase() + res.name.slice(1); //error
-    
+                    const name = res.name.charAt(0).toUpperCase() + res.name.slice(1);
                     const pokeName = document.createElement('p');
                     dexNum.innerHTML = `<strong>Pokémon Name: </strong>${name}`;
                     article2.append(h2, image, image2, pokeName);
