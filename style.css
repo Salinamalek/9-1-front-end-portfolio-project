@@ -41,3 +41,8 @@ a:hover {
         border-radius: 500px;
     }
 };
+
+#pokemon-id {
+    width: 200px;
+    padding: 12px 20px;
+}
