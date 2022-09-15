@@ -11,42 +11,42 @@ const error = document.querySelector('.error')
 
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
 
     if(id.value === ""){
-        error.classList.remove('hidden')
-        error.innerText = "Must input a correct Pokédex entry # !"
+        error.classList.remove('hidden');
+        error.innerText = "Must input a correct Pokédex entry # !";
     } else {
         error.classList.add('hidden');
-        error.innerText = ""
-     }
+        error.innerText = "";
+    };
 
         fetch(`${url}/${id.value}`)
             .then((res) => res.json())
             .then((res) => {
-                console.log(res)
+                // console.log(res)
 
-                const article = document.querySelector('#name')
-                article.innerHTML = ""
+                const article = document.querySelector('#name');
+                article.innerHTML = "";
 
-                pokemon.append(article)
+                pokemon.append(article);
 
-                const pokeDex = `Pokédex Entry #: ` + res.id
-                const h2 = document.createElement('h2')
-                h2.innerText = pokeDex
-                const image = document.createElement('img')
-                const image2 = document.createElement('img')
+                const pokeDex = `Pokédex Entry #: ` + res.id;
+                const h2 = document.createElement('h2');
+                h2.innerText = pokeDex;
+                const image = document.createElement('img');
+                const image2 = document.createElement('img');
 
-                const article2 = document.querySelector('#name')
-                article2.innerHTML = ""
-                const name = res.name.charAt(0).toUpperCase() + res.name.slice(1)
-                const pokeName = document.createElement('p')
+                const article2 = document.querySelector('#name');
+                article2.innerHTML = "";
+                const name = res.name.charAt(0).toUpperCase() + res.name.slice(1);
+                const pokeName = document.createElement('p');
                 dexNum.innerHTML = `<strong>Pokémon Name: </strong>${name}`;
                 article2.append(h2, image, image2, pokeName);
 
-                image.src = res.sprites.front_default
-                image2.src = res.sprites.front_shiny
+                image.src = res.sprites.front_default;
+                image2.src = res.sprites.front_shiny;
                 
                 image.addEventListener('click', () => {
 
@@ -57,7 +57,7 @@ form.addEventListener("submit", (event) => {
                     } else {
                         image.src = res.sprites.front_default
                     }
-                })
+                });
 
                 image2.addEventListener('click', () => {
                     image2.classList.toggle('shiny')
@@ -67,69 +67,50 @@ form.addEventListener("submit", (event) => {
                     } else {
                         image2.src = res.sprites.back_shiny
                     }
-                })
+                });
 
-                const article3 = document.querySelector('#type')
-                article3.innerHTML = ""
-                const type = res.types[0].type.name.charAt(0).toUpperCase() + res.types[0].type.name.slice(1)
+                const article3 = document.querySelector('#type');
+                article3.innerHTML = "";
+                const type = res.types[0].type.name.charAt(0).toUpperCase() + res.types[0].type.name.slice(1);
                 
                 const types = document.createElement('p');
                     if(res.types.length === 1){
                         types.innerHTML = `<strong>Type(s): </strong>${type}`;   
                     } else if(res.types.length === 2) {
                         const type2 = res.types[1].type.name.charAt(0).toUpperCase() + res.types[1].type.name.slice(1)
-                        types.innerHTML = `<strong>Type(s): </strong>${type}, ${type2}`;
-                    }
-                article3.append(types)
+                        types.innerHTML = `<strong>Type(s): </strong>${type}, ${type2}`
+                    };
+                article3.append(types);
 
-                const article4 = document.querySelector('#exp')
-                article4.innerHTML = ""
-                const exp = res.base_experience
-                const exps = document.createElement('p')
-                exps.innerHTML = `<strong>Base Experience: </strong>${exp} XP`
+                const article4 = document.querySelector('#exp');
+                article4.innerHTML = "";
+                const exp = res.base_experience;
+                const exps = document.createElement('p');
+                exps.innerHTML = `<strong>Base Experience: </strong>${exp} XP`;
                 article4.append(exps);
 
-                const article5 = document.querySelector('#height')
-                article5.innerHTML = ""
-                const height = res.height
-                const heights = document.createElement('p')
-                heights.innerHTML = `<strong>Height: </strong>${height/10} meter(s)`
+                const article5 = document.querySelector('#height');
+                article5.innerHTML = "";
+                const height = res.height;
+                const heights = document.createElement('p');
+                heights.innerHTML = `<strong>Height: </strong>${height/10} meter(s)`;
                 article5.append(heights);
 
-                const article6 = document.querySelector('#weight')
-                article6.innerHTML = ""
-                const weight = res.weight
-                const weights = document.createElement('p')
-                weights.innerHTML = `<strong>Weight: </strong>${weight/10} kilogram(s)`
+                const article6 = document.querySelector('#weight');
+                article6.innerHTML = "";
+                const weight = res.weight;
+                const weights = document.createElement('p');
+                weights.innerHTML = `<strong>Weight: </strong>${weight/10} kilogram(s)`;
                 article6.append(weights);
                 
 
-                const article7 = document.querySelector('#numAbilities')
-                article7.innerHTML = ""
-                const abilities = res.abilities.length
-                // console.log(abilities)
+                const article7 = document.querySelector('#numAbilities');
+                article7.innerHTML = "";
+                const abilities = res.abilities.length;
                 const ability = document.createElement('p');
                 ability.innerHTML = `<strong>Number of Abilities: </strong>${abilities}`;
                 article7.append(ability);
 
-
-                // const article7 = document.querySelector('#abilities')
-                // article7.innerHTML = ""
-                // const ability = res.abilities[0].ability.name.charAt(0).toUpperCase() + res.abilities[0].ability.name.slice(1);
-                
-
-                // const abilities = document.createElement('p');
-                //     if(res.abilities.ability.length === 1){
-                //         abilities.innerHTML = `<strong>Abilities: </strong>${ability}`;
-                //     } else if(res.abilities.ability.length === 2){
-                //         const ability2 = res.abilities[1].ability.name.charAt(0).toUpperCase() + res.abilities[1].ability.name.slice(1);
-                //         abilities.innerHTML = `<strong>Abilities: </strong>${ability}, ${ability2}`;
-                //     } else if(res.abilities.ability.length === 3){
-                //         const ability2 = res.abilities[1].ability.name.charAt(0).toUpperCase() + res.abilities[1].ability.name.slice(1);
-                //         const ability3 = res.abilities[2].ability.name.charAt(0).toUpperCase() + res.abilities[2].ability.name.slice(1);
-                //         abilities.innerHTML = `<strong>Abilities: </strong>${ability}, ${ability2}, ${ability3}`;
-                //     }
-                // article7.append(abilities)
 
                 const article8 = document.querySelector('#numMoves');
                 article8.innerHTML = "";
@@ -157,7 +138,7 @@ form.addEventListener("submit", (event) => {
                 } else {
                     gen.innerHTML = `<strong>Generation: 8</strong>`
                 }
-                gen.prepend(article8);
+                article4.prepend(gen);
 
 
                 form.reset();
