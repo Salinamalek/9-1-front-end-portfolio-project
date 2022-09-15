@@ -19,22 +19,22 @@ form.addEventListener("submit", (event) => {
         error.innerText = "Must input a valid Pokédex entry # !";
         
         const clear = document.querySelectorAll('.pokeInfo article')
-        clear.forEach(article => {
-            article.innerHTML = ""
+        clear.forEach(articles => {
+            articles.innerText = ""
         })
     } else {
         error.classList.add('hidden')
         error.innerText = ""
     };
 
+
         fetch(`${url}/${id.value}`)
             .then((res) => res.json())
             .then((res) => {
-                // console.log(res)
+
 
                 const article = document.querySelector('#name');
                 article.innerHTML = "";
-
                 pokemon.append(article);
 
                 const pokeDex = `Pokédex Entry #: ` + res.id;
@@ -45,6 +45,7 @@ form.addEventListener("submit", (event) => {
 
                 const article2 = document.querySelector('#name');
                 article2.innerHTML = "";
+                // console.log(res.name)
                 const name = res.name.charAt(0).toUpperCase() + res.name.slice(1);
                 const pokeName = document.createElement('p');
                 dexNum.innerHTML = `<strong>Pokémon Name: </strong>${name}`;
@@ -121,29 +122,32 @@ form.addEventListener("submit", (event) => {
                 article8.innerHTML = "";
                 const moves = res.moves.length;
                 const move = document.createElement('p');
-                move.innerHTML = `<strong>Number of Moves: </strong>${moves}`;
+                move.innerHTML = `Number of Moves: ${moves}`;
                 article8.append(move);
 
-                const gen = document.querySelector('#gen');
-                gen.innerHTML = "";
+                const gens = document.querySelector('#gen');
+                gens.innerHTML = "";
+                // console.log(res.id)
+                const gen = document.createElement('p');
                 if(res.id >= 1 && res.id <= 151){
-                    gen.innerHTML = `<strong>Generation: 1</strong>`
+                    gen.innerHTML = `Generation: 1`
                 } else if(res.id >= 152 && res.id <= 251){
-                    gen.innerHTML = `<strong>Generation: 2</strong>`
+                    gen.innerHTML = `Generation: 2`
                 } else if(res.id >= 252 && res.id <= 386){
-                    gen.innerHTML = `<strong>Generation: 3</strong>`
+                    gen.innerHTML = `Generation: 3`
                 } else if(res.id >= 387 && res.id <= 493){
-                    gen.innerHTML = `<strong>Generation: 4</strong>`
+                    gen.innerHTML = `Generation: 4`
                 } else if(res.id >= 494 && res.id <= 649){
-                    gen.innerHTML = `<strong>Generation: 5</strong>`
+                    gen.innerHTML = `Generation: 5`
                 } else if(res.id >= 650 && res.id <= 721){
-                    gen.innerHTML = `<strong>Generation: 6</strong>`
+                    gen.innerHTML = `Generation: 6`
                 } else if(res.id >= 722 && res.id <= 809){
-                    gen.innerHTML = `<strong>Generation: 7</strong>`
+                    gen.innerHTML = `Generation: 7`
                 } else {
-                    gen.innerHTML = `<strong>Generation: 8</strong>`
+                    gen.innerHTML = `Generation: 8`
                 }
                 article4.prepend(gen);
+
 
                 form.reset();
             })
