@@ -17,6 +17,12 @@ form.addEventListener("submit", (event) => {
     if(id.value === ""){
         error.classList.remove('hidden');
         error.innerText = "Must input a correct Pokédex entry # !";
+        
+        const clear = document.querySelectorAll('.pokeInfo article')
+        // console.log(clear)
+        clear.forEach(article => {
+            article.innerHTML = ""
+        });
     } else {
         error.classList.add('hidden');
         error.innerText = "";
@@ -145,8 +151,3 @@ form.addEventListener("submit", (event) => {
             })
             .catch((err) => console.log(err))
 });
-
-
-
-
-
