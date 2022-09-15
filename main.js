@@ -47,11 +47,16 @@ form.addEventListener("submit", (event) => {
                 article2.innerHTML = "";
                 // console.log(res.name)
 
-                const name = res.name.charAt(0).toUpperCase() + res.name.slice(1); //error
+                if(!res.name){
+                    throw error
+                } else {
+                    const name = res.name.charAt(0).toUpperCase() + res.name.slice(1); //error
+    
+                    const pokeName = document.createElement('p');
+                    dexNum.innerHTML = `<strong>Pokémon Name: </strong>${name}`;
+                    article2.append(h2, image, image2, pokeName);
+                };
 
-                const pokeName = document.createElement('p');
-                dexNum.innerHTML = `<strong>Pokémon Name: </strong>${name}`;
-                article2.append(h2, image, image2, pokeName);
 
                 image.src = res.sprites.front_default;
                 image2.src = res.sprites.front_shiny;
