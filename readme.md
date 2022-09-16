@@ -1,5 +1,8 @@
 The purpose of this project is to act similarly to a Pokédex from the Pokémon games. Based on the Pokédex entry number, user will receive the name and other quick information about the specific Pokémon.
 
+Here is the link to my deployed site:
+https://salinamalek.github.io/9-1-front-end-portfolio-project/
+
 -   Fork and clone this respository.
 -   Open up the respository in VSCode.
 -   Download the Go Live extension on VSCode.
