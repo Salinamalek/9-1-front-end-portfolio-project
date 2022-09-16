@@ -1,9 +1,6 @@
 The purpose of this project is to act similarly to a Pokédex from the Pokémon games. Based on the Pokédex entry number, user will receive the name and other quick information about the specific Pokémon.
 
-Here is the link to my deployed site:
-https://salinamalek.github.io/9-1-front-end-portfolio-project/
-
-To view a better version of the portfolio project:
+**To view the portfolio project:**
 -   Fork and clone this respository.
 -   Open up the respository in VSCode.
 -   Download the Go Live extension on VSCode.
@@ -17,3 +14,6 @@ To view a better version of the portfolio project:
 - Entering nothing into the form box and submitting will result in an error message telling user to submit a valid number.
 
 - Note: The pokédex entry range is limited up to generation 8 of Pokémon, which is the Pokemon Sword & Shield game, and some information from the API used (Poke API) isn't updated to the current Pokemon games.
+
+Here is the link to my deployed site:
+https://salinamalek.github.io/9-1-front-end-portfolio-project/
